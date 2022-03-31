@@ -17,6 +17,7 @@ runcmd:
  - wget https://archive.apache.org/dist/pulsar/pulsar-2.7.0/apache-pulsar-2.7.0-bin.tar.gz
  - apt-get install -y git
  - cd /home/ubuntu
+ - git clone https://github.com/lovvvan/data-eng2.git
  - git clone https://github.com/JesperStromblad/DE2LAB.git 
  - apt-get install -y python3-pip
  - pip install --upgrade pip
