@@ -12,9 +12,12 @@ runcmd:
  - sudo bash
  - apt-get update
  - apt-get -y upgrade
+ - apt install -y docker.io
+ - pip install pulsar-client==2.7.1 
  - wget https://archive.apache.org/dist/pulsar/pulsar-2.7.0/apache-pulsar-2.7.0-bin.tar.gz
  - apt-get install -y git
  - cd /home/ubuntu
  - git clone https://github.com/JesperStromblad/DE2LAB.git 
  - apt-get install -y python3-pip
  - pip install --upgrade pip
+ - docker run -it -p 6650:6650 -p 8080:8080  --mount source=pulsardata,target=/pulsar/data  --mount source=pulsarconf,target=/pulsar/conf apachepulsar/pulsar:2.7.0 bin/pulsar standalone 
