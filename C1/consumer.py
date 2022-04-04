@@ -36,10 +36,13 @@ def function(string):
 consumer = pulsarConsumer() 
 merged_string = ""
 
-while (True):
+msg = consumer.receive()
+print(msg)
+
+while (msg):
     try: 
         # Display message received from producer
-        msg = consumer.receive()
+        
         print("Received message : '%s'" % msg.data()) 
 
         upper_case_string = conversion(msg.data(), function)
@@ -47,6 +50,8 @@ while (True):
         merged_string += upper_case_string
         # Acknowledge for receiving the message  
         consumer.acknowledge(msg) 
+
+        msg = consumer.receive()
     except: 
         consumer.negative_acknowledge(msg) 
 
