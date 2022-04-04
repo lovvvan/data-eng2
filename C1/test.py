@@ -36,25 +36,25 @@ def function(string):
 consumer = pulsarConsumer() 
 merged_string = ""
 
-while (True):
+ITERATION = 5
+n= 3
+
+
+try: 
+    # Display message received from producer
     msg = consumer.receive()
-    try: 
-        # Display message received from producer
-        print("Received message : '%s'" % msg.data()) 
-
-        upper_case_string = conversion(msg.data(), function)
-        print("upper case string: ", upper_case_string)
-
-        merged_string += upper_case_string
-        print("merged_string: ", merged_string)
-
-        # Acknowledge for receiving the message  
-        print("waddup")
-        consumer.acknowledge(msg) 
-        print("hej")
-        n +=1
-    except: 
-        consumer.negative_acknowledge(msg) 
+    print("Received message : '%s'" % msg.data()) 
+    upper_case_string = conversion(msg.data(), function)
+    print("upper case string: ", upper_case_string)
+    merged_string += upper_case_string
+    print("merged_string: ", merged_string)
+    # Acknowledge for receiving the message  
+    print("waddup")
+    consumer.acknowledge(msg) 
+    print("hej")
+    n +=1
+except: 
+    consumer.negative_acknowledge(msg) 
 
 print(merged_string)
 # Destroy pulsar client 
