@@ -7,7 +7,7 @@ import pulsar
 """
 
 # Fill in your author information
-___author___ = ""
+___author___ = "Lovisa Hedman"
 ___email____ = ""
 
 # Input string
@@ -16,36 +16,6 @@ INPUT_STRING = "I want to be capatilized"
 # Iteration represents the operation applied to each word in the string 
 # e.g., 1 represents that operation is applied to first word in the string
 ITERATION = 5
-
-def conversion(substring, operation):
-    """A conversion function which takes a string as an input and outputs a converted string
-
-    Args:
-        substring (String)
-        operation (function): This is an operation on the given input
-
-    Returns:
-        [String]: Converted String
-    """
-
-
-    # returns the conversion applied to input
-    return function(substring)
-
-
-
-def function(string):
-    """ A function that performs some operation on a string. You can change the operation accordingly
-
-    Args:
-        string (String): input string on which some operation is applied
-
-    Returns:
-        [String]: string in upper case
-    """
-    return string.upper()
-
-
 
 
 
@@ -62,7 +32,6 @@ if __name__ == "__main__":
     
     # Create a pulsar client by supplying ip address and port 
     client = pulsar.Client('pulsar://localhost:6650') 
- 
     # Create a producer on the topic that consumer can subscribe to 
     producer = client.create_producer('DEtopic') 
   
@@ -75,9 +44,7 @@ if __name__ == "__main__":
         #upper_case_string = conversion(split_string[i], function)
         
         what_is_this = producer.send((split_string[i]).encode('utf-8'))
-        print("what is this: ", what_is_this)
-
-        #resultant_string +=   upper_case_string  + ' '    
+        print("what is this: ", what_is_this)  
 
     client.close()
 
