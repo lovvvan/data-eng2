@@ -38,11 +38,12 @@ merged_string = ""
 
 while (True):
     msg = consumer.receive()
-    try: 
+    try:
+        msg2 = msg.data().decode()
         # Display message received from producer
-        print("Received message : '%s'" % msg.data()) 
+        print("Received message : '%s'" % msg2) 
 
-        upper_case_string = conversion(msg.data(), function)
+        upper_case_string = conversion(msg2, function)
         print("upper case string: ", upper_case_string)
 
         merged_string += upper_case_string
@@ -53,7 +54,8 @@ while (True):
         consumer.acknowledge(msg) 
         print("hej")
         n +=1
-    except: 
+    except Exception as e:
+        print("ERROR : "+str(e))
         consumer.negative_acknowledge(msg) 
 
 print(merged_string)
