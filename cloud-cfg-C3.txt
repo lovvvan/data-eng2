@@ -22,3 +22,5 @@ runcmd:
  - pip3 install python-dateutil==2.8.2
  - git clone https://github.com/JSFRi/spark-jupyters.git
  - python3 -m pip install jupyterlab
+ - docker pull lovvvan/jupyter
+ - docker run -p 8888:8888 lovvvan/jupyter
