@@ -13,14 +13,12 @@ runcmd:
  - apt-get update
  - apt-get -y upgrade
  - apt-get install -y git
+ - apt install -y docker.io
  - cd /home/ubuntu
  - git clone https://github.com/lovvvan/data-eng2.git
  - apt-get install -y python3-pip
  - pip3 install --upgrade pip
  - pip3 install packaging
  - pip3 install python-dateutil==2.8.2
- - python3 -m pip install numpy --user
- - python3 -m pip install pandas --user
- - python3 -m pip install matplotlib --user
  - git clone https://github.com/JSFRi/spark-jupyters.git
  - python3 -m pip install jupyterlab
