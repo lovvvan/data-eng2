@@ -24,8 +24,11 @@ runcmd:
  - python3 -m pip install jupyterlab
  - pip3 install sklearn
  - pip3 install pandas
+ - pip3 install matplotlib
  - pip3 install "ray[tune]" tune-sklearn
  - pip3 install ray
  - apt-get install unzip
+ - pip3 install notebook
+ - pip3 install jupyterlab
  - docker pull jupyter/datascience-notebook
  - docker run -p 8888:8888 jupyter/datascience-notebook
