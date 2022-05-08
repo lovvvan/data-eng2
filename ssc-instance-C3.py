@@ -46,7 +46,7 @@ else:
 secgroups = ['default', 'lovisa-hedman']
 
 print ("Creating instance ... ")
-instance = nova.servers.create(name="Lovisa-hedman-C3-1", key_name="lovisa-key-data2", image=image, flavor=flavor, userdata=userdata, nics=nics,security_groups=secgroups)
+instance = nova.servers.create(name="Lovisa-hedman-C3-2", key_name="lovisa-key-data2", image=image, flavor=flavor, userdata=userdata, nics=nics,security_groups=secgroups)
 inst_status = instance.status
 print ("waiting for 10 seconds.. ")
 time.sleep(10)
